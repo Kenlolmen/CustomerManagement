@@ -28,25 +28,225 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            EnterminBudget = new Label();
+            textMinBudget = new TextBox();
+            buttonMinBudget = new Button();
+            buttonSearchID = new Button();
+            textID = new TextBox();
+            EnterId = new Label();
+            listView1 = new ListView();
+            Select = new Label();
+            textBoxName = new TextBox();
+            labelCustName = new Label();
+            textBoxAddress = new TextBox();
+            labelCustAddress = new Label();
+            textBoxEmail = new TextBox();
+            labelCustEmail = new Label();
+            textBoxBudget = new TextBox();
+            labelCustBudg = new Label();
+            textBoxPhone = new TextBox();
+            labelCustPhone = new Label();
+            Create = new Label();
+            buttonAddCustomer = new Button();
             SuspendLayout();
             // 
-            // label1
+            // EnterminBudget
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(34, 35);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 20);
-            label1.TabIndex = 0;
-            label1.Click += label1_Click;
+            EnterminBudget.AutoSize = true;
+            EnterminBudget.Location = new Point(30, 34);
+            EnterminBudget.Name = "EnterminBudget";
+            EnterminBudget.Size = new Size(137, 15);
+            EnterminBudget.TabIndex = 1;
+            EnterminBudget.Text = "Enter minimum budget: ";
+            // 
+            // textMinBudget
+            // 
+            textMinBudget.Location = new Point(173, 31);
+            textMinBudget.Name = "textMinBudget";
+            textMinBudget.Size = new Size(97, 23);
+            textMinBudget.TabIndex = 2;
+            // 
+            // buttonMinBudget
+            // 
+            buttonMinBudget.Location = new Point(296, 34);
+            buttonMinBudget.Name = "buttonMinBudget";
+            buttonMinBudget.Size = new Size(75, 23);
+            buttonMinBudget.TabIndex = 3;
+            buttonMinBudget.Text = "Search";
+            buttonMinBudget.UseVisualStyleBackColor = true;
+            buttonMinBudget.Click += buttonMinBudget_Click;
+            // 
+            // buttonSearchID
+            // 
+            buttonSearchID.Location = new Point(226, 60);
+            buttonSearchID.Name = "buttonSearchID";
+            buttonSearchID.Size = new Size(75, 23);
+            buttonSearchID.TabIndex = 9;
+            buttonSearchID.Text = "Search";
+            buttonSearchID.UseVisualStyleBackColor = true;
+            buttonSearchID.Click += buttonSearchID_button1_Click;
+            // 
+            // textID
+            // 
+            textID.Location = new Point(99, 60);
+            textID.Name = "textID";
+            textID.Size = new Size(97, 23);
+            textID.TabIndex = 8;
+            textID.TextChanged += textID_TextChanged;
+            // 
+            // EnterId
+            // 
+            EnterId.AutoSize = true;
+            EnterId.Location = new Point(30, 63);
+            EnterId.Name = "EnterId";
+            EnterId.Size = new Size(63, 15);
+            EnterId.TabIndex = 7;
+            EnterId.Text = "Enter ID :   ";
+            EnterId.Click += EnterId_Click;
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(446, 26);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(805, 302);
+            listView1.TabIndex = 10;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            // 
+            // Select
+            // 
+            Select.AutoSize = true;
+            Select.Location = new Point(30, 9);
+            Select.Name = "Select";
+            Select.Size = new Size(45, 15);
+            Select.TabIndex = 11;
+            Select.Text = "SELECT";
+            Select.Click += Select_Click;
+            // 
+            // textBoxName
+            // 
+            textBoxName.Location = new Point(173, 136);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(146, 23);
+            textBoxName.TabIndex = 13;
+            // 
+            // labelCustName
+            // 
+            labelCustName.AutoSize = true;
+            labelCustName.Location = new Point(30, 139);
+            labelCustName.Name = "labelCustName";
+            labelCustName.Size = new Size(130, 15);
+            labelCustName.TabIndex = 12;
+            labelCustName.Text = "Enter Customer Name: ";
+            // 
+            // textBoxAddress
+            // 
+            textBoxAddress.Location = new Point(173, 170);
+            textBoxAddress.Name = "textBoxAddress";
+            textBoxAddress.Size = new Size(146, 23);
+            textBoxAddress.TabIndex = 16;
+            // 
+            // labelCustAddress
+            // 
+            labelCustAddress.AutoSize = true;
+            labelCustAddress.Location = new Point(30, 173);
+            labelCustAddress.Name = "labelCustAddress";
+            labelCustAddress.Size = new Size(143, 15);
+            labelCustAddress.TabIndex = 15;
+            labelCustAddress.Text = "Enter Customer Address:  ";
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Location = new Point(173, 204);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(146, 23);
+            textBoxEmail.TabIndex = 19;
+            // 
+            // labelCustEmail
+            // 
+            labelCustEmail.AutoSize = true;
+            labelCustEmail.Location = new Point(30, 207);
+            labelCustEmail.Name = "labelCustEmail";
+            labelCustEmail.Size = new Size(127, 15);
+            labelCustEmail.TabIndex = 18;
+            labelCustEmail.Text = "Enter Customer Email: ";
+            // 
+            // textBoxBudget
+            // 
+            textBoxBudget.Location = new Point(173, 235);
+            textBoxBudget.Name = "textBoxBudget";
+            textBoxBudget.Size = new Size(97, 23);
+            textBoxBudget.TabIndex = 22;
+            // 
+            // labelCustBudg
+            // 
+            labelCustBudg.AutoSize = true;
+            labelCustBudg.Location = new Point(30, 238);
+            labelCustBudg.Name = "labelCustBudg";
+            labelCustBudg.Size = new Size(136, 15);
+            labelCustBudg.TabIndex = 21;
+            labelCustBudg.Text = "Enter Customer Budget: ";
+            // 
+            // textBoxPhone
+            // 
+            textBoxPhone.Location = new Point(173, 269);
+            textBoxPhone.Name = "textBoxPhone";
+            textBoxPhone.Size = new Size(110, 23);
+            textBoxPhone.TabIndex = 25;
+            // 
+            // labelCustPhone
+            // 
+            labelCustPhone.AutoSize = true;
+            labelCustPhone.Location = new Point(30, 272);
+            labelCustPhone.Name = "labelCustPhone";
+            labelCustPhone.Size = new Size(132, 15);
+            labelCustPhone.TabIndex = 24;
+            labelCustPhone.Text = "Enter Customer Phone: ";
+            // 
+            // Create
+            // 
+            Create.AutoSize = true;
+            Create.Location = new Point(30, 114);
+            Create.Name = "Create";
+            Create.Size = new Size(47, 15);
+            Create.TabIndex = 27;
+            Create.Text = "CREATE";
+            // 
+            // buttonAddCustomer
+            // 
+            buttonAddCustomer.Location = new Point(323, 238);
+            buttonAddCustomer.Name = "buttonAddCustomer";
+            buttonAddCustomer.Size = new Size(108, 54);
+            buttonAddCustomer.TabIndex = 28;
+            buttonAddCustomer.Text = "ADD";
+            buttonAddCustomer.UseVisualStyleBackColor = true;
+            buttonAddCustomer.Click += buttonAddCustomer_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1272, 708);
-            Controls.Add(label1);
-            Margin = new Padding(3, 4, 3, 4);
+            ClientSize = new Size(1282, 587);
+            Controls.Add(buttonAddCustomer);
+            Controls.Add(Create);
+            Controls.Add(textBoxPhone);
+            Controls.Add(labelCustPhone);
+            Controls.Add(textBoxBudget);
+            Controls.Add(labelCustBudg);
+            Controls.Add(textBoxEmail);
+            Controls.Add(labelCustEmail);
+            Controls.Add(textBoxAddress);
+            Controls.Add(labelCustAddress);
+            Controls.Add(textBoxName);
+            Controls.Add(labelCustName);
+            Controls.Add(Select);
+            Controls.Add(listView1);
+            Controls.Add(buttonSearchID);
+            Controls.Add(textID);
+            Controls.Add(EnterId);
+            Controls.Add(buttonMinBudget);
+            Controls.Add(textMinBudget);
+            Controls.Add(EnterminBudget);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -54,7 +254,25 @@
         }
 
         #endregion
-
-        private Label label1;
+        private Label EnterminBudget;
+        private TextBox textMinBudget;
+        private Button buttonMinBudget;
+        private Button buttonSearchID;
+        private TextBox textID;
+        private Label EnterId;
+        private ListView listView1;
+        private Label Select;
+        private TextBox textBoxName;
+        private Label labelCustName;
+        private TextBox textBoxAddress;
+        private Label labelCustAddress;
+        private TextBox textBoxEmail;
+        private Label labelCustEmail;
+        private TextBox textBoxBudget;
+        private Label labelCustBudg;
+        private TextBox textBoxPhone;
+        private Label labelCustPhone;
+        private Label Create;
+        private Button buttonAddCustomer;
     }
 }
