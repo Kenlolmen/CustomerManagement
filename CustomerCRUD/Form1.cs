@@ -14,6 +14,16 @@ namespace CustomerCRUD
             customerList = customerDB.Customers.Select(c => c).ToList();
         }
 
+        private void ShowCustomers()
+        {
+            listView1.Items.Clear();
+
+            foreach (Customer customer in customerList)
+            {
+                listView1.Items.Add(customer.ToString());
+            }
+        }
+
         private void textID_TextChanged(object sender, EventArgs e)
         {
 
@@ -23,14 +33,9 @@ namespace CustomerCRUD
         {
             float minBudgetSearch = float.Parse(textMinBudget.Text);
             customerList = customerDB.Customers
-                .Where(c => c.Budget > minBudgetSearch)
+                .Where(c => c.Budget >= minBudgetSearch)
                 .Select(c => c).ToList();
-            listView1.Items.Clear();
-
-            foreach (Customer customer in customerList)
-            {
-                listView1.Items.Add(customer.ToString());
-            }
+            ShowCustomers();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,8 +82,8 @@ namespace CustomerCRUD
                 Budget = int.Parse(textBoxBudget.Text)
             };
 
-                customerDB.Customers.Add(AddCustomer);
-                customerDB.SaveChanges();
+            customerDB.Customers.Add(AddCustomer);
+            customerDB.SaveChanges();
 
             listView1.Items.Clear();
             listView1.Items.Add(AddCustomer.ToString());
@@ -88,6 +93,47 @@ namespace CustomerCRUD
             textBoxEmail.Text = "";
             textBoxPhone.Text = "";
             textBoxBudget.Text = "";
+
+        }
+
+        private void ShowAllButton_Click(object sender, EventArgs e)
+        {
+            ShowCustomers();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                var selectedItem = listView1.SelectedItems[0]; 
+
+                // Sprawdzenie, czy Tag jest typu Customer
+                if (selectedItem.Tag is Customer selectedCustomer)
+                {
+                    // Wype³nij pola tekstowe danymi klienta
+                    textBoxEditName.Text = selectedCustomer.Name;
+                    textBoxEditAddress.Text = selectedCustomer.Adress; 
+                    textBoxEditEmail.Text = selectedCustomer.Email;
+                    textBoxEditPhone.Text = selectedCustomer.PhoneNumber.ToString();
+                    textBoxEditBudget.Text = selectedCustomer.Budget.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Wybrany element nie jest klientem."); // Informacja o b³êdzie
+                }
+            }
+            else if(listView1.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Wybierz tylko 1 klienta do edycji.");
+            }
+            else
+            {
+                MessageBox.Show("Wybierz klienta do edycji.");
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
 
         }
     }

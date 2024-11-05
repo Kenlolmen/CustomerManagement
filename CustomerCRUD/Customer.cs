@@ -16,7 +16,7 @@ namespace CustomerCRUD
         public int Budget { get; set; }
         public override string ToString()
         {
-            return $"Name: {Name}, Address: {Adress} \n Budget:  {Budget}, Email :{Email}, Phone Number: {PhoneNumber}\n \n";
+            return $"Name: {Name}, Address: {Adress} \n Budget:  ${Budget}, Email: {Email}, Phone Number: {PhoneNumber}\n \n";
         }
 
     }

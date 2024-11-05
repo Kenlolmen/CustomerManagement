@@ -13,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{EDD2CC81-5EEE-4807-9E4D-D632EB8267A2}|CustomerCRUD\\CustomerCRUD.csproj|c:\\users\\lenovo\\source\\repos\\customercrud\\customercrud\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EDD2CC81-5EEE-4807-9E4D-D632EB8267A2}|CustomerCRUD\\CustomerCRUD.csproj|solutionrelative:customercrud\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDD2CC81-5EEE-4807-9E4D-D632EB8267A2}|CustomerCRUD\\CustomerCRUD.csproj|c:\\users\\lenovo\\source\\repos\\customercrud\\customercrud\\customercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDD2CC81-5EEE-4807-9E4D-D632EB8267A2}|CustomerCRUD\\CustomerCRUD.csproj|solutionrelative:customercrud\\customercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CustomerContext.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\CustomerCRUD\\CustomerCRUD\\CustomerContext.cs",
+              "RelativeDocumentMoniker": "CustomerCRUD\\CustomerContext.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\CustomerCRUD\\CustomerCRUD\\CustomerContext.cs",
+              "RelativeToolTip": "CustomerCRUD\\CustomerContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T15:23:03.633Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -32,7 +49,7 @@
               "RelativeDocumentMoniker": "CustomerCRUD\\Customer.cs",
               "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\CustomerCRUD\\CustomerCRUD\\Customer.cs",
               "RelativeToolTip": "CustomerCRUD\\Customer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAYAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T22:42:35.024Z",
               "EditorCaption": ""
@@ -57,7 +74,7 @@
               "RelativeDocumentMoniker": "CustomerCRUD\\Form1.cs",
               "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\CustomerCRUD\\CustomerCRUD\\Form1.cs",
               "RelativeToolTip": "CustomerCRUD\\Form1.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAIAwwFkAAAAkAAAA",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAAACQAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-29T21:17:59.723Z",
               "EditorCaption": ""
