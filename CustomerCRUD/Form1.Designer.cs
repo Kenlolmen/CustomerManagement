@@ -62,6 +62,7 @@
             textBoxEditName = new TextBox();
             labelEditName = new Label();
             buttonEdit = new Button();
+            buttonDelete = new Button();
             SuspendLayout();
             // 
             // EnterminBudget
@@ -122,7 +123,7 @@
             // 
             listView1.Location = new Point(446, 20);
             listView1.Name = "listView1";
-            listView1.Size = new Size(805, 302);
+            listView1.Size = new Size(805, 346);
             listView1.TabIndex = 10;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
@@ -238,7 +239,7 @@
             // 
             // ShowAllButton
             // 
-            ShowAllButton.Location = new Point(1128, 334);
+            ShowAllButton.Location = new Point(1128, 382);
             ShowAllButton.Name = "ShowAllButton";
             ShowAllButton.Size = new Size(123, 36);
             ShowAllButton.TabIndex = 29;
@@ -347,7 +348,7 @@
             // 
             // buttonEdit
             // 
-            buttonEdit.Location = new Point(984, 334);
+            buttonEdit.Location = new Point(984, 382);
             buttonEdit.Name = "buttonEdit";
             buttonEdit.Size = new Size(123, 36);
             buttonEdit.TabIndex = 42;
@@ -355,11 +356,22 @@
             buttonEdit.UseVisualStyleBackColor = true;
             buttonEdit.Click += buttonEdit_Click;
             // 
+            // buttonDelete
+            // 
+            buttonDelete.Location = new Point(845, 382);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(123, 36);
+            buttonDelete.TabIndex = 43;
+            buttonDelete.Text = "Delete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1282, 587);
+            Controls.Add(buttonDelete);
             Controls.Add(buttonEdit);
             Controls.Add(buttonSave);
             Controls.Add(label1);
@@ -435,5 +447,6 @@
         private TextBox textBoxEditName;
         private Label labelEditName;
         private Button buttonEdit;
+        private Button buttonDelete;
     }
 }

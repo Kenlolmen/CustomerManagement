@@ -20,7 +20,11 @@ namespace CustomerCRUD
 
             foreach (Customer customer in customerList)
             {
-                listView1.Items.Add(customer.ToString());
+                var listViewItem = new ListViewItem(customer.ToString())
+                {
+                    Tag = customer
+                };
+                listView1.Items.Add(listViewItem);
             }
         }
 
@@ -32,16 +36,23 @@ namespace CustomerCRUD
         private void buttonMinBudget_Click(object sender, EventArgs e)
         {
             float minBudgetSearch = float.Parse(textMinBudget.Text);
-            customerList = customerDB.Customers
+
+            var filteredCustomers = customerDB.Customers
                 .Where(c => c.Budget >= minBudgetSearch)
-                .Select(c => c).ToList();
-            ShowCustomers();
+                .ToList();
+
+            listView1.Items.Clear();
+
+            foreach (var customer in filteredCustomers)
+            {
+                listView1.Items.Add(customer.ToString());
+            }
+
+            textMinBudget.Text = "";
+
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void buttonSearchID_button1_Click(object sender, EventArgs e)
         {
@@ -54,22 +65,14 @@ namespace CustomerCRUD
             {
                 listView1.Items.Add(cust.ToString());
             }
+            textID.Text = "";
 
         }
-        private void EnterId_Click(object sender, EventArgs e)
-        {
+        private void EnterId_Click(object sender, EventArgs e) { }
 
-        }
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e) { }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Select_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void Select_Click(object sender, EventArgs e) { }
 
         private void buttonAddCustomer_Click(object sender, EventArgs e)
         {
@@ -85,8 +88,14 @@ namespace CustomerCRUD
             customerDB.Customers.Add(AddCustomer);
             customerDB.SaveChanges();
 
-            listView1.Items.Clear();
-            listView1.Items.Add(AddCustomer.ToString());
+            customerList.Add(AddCustomer);
+
+            //  listView1.Items.Clear();
+            var listViewItem = new ListViewItem(AddCustomer.ToString())
+            {
+                Tag = AddCustomer
+            };
+            listView1.Items.Add(listViewItem);
 
             textBoxName.Text = "";
             textBoxAddress.Text = "";
@@ -105,36 +114,105 @@ namespace CustomerCRUD
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                var selectedItem = listView1.SelectedItems[0]; 
+                var selectedItem = listView1.SelectedItems[0];
 
                 // Sprawdzenie, czy Tag jest typu Customer
                 if (selectedItem.Tag is Customer selectedCustomer)
                 {
                     // Wype³nij pola tekstowe danymi klienta
                     textBoxEditName.Text = selectedCustomer.Name;
-                    textBoxEditAddress.Text = selectedCustomer.Adress; 
+                    textBoxEditAddress.Text = selectedCustomer.Adress;
                     textBoxEditEmail.Text = selectedCustomer.Email;
                     textBoxEditPhone.Text = selectedCustomer.PhoneNumber.ToString();
                     textBoxEditBudget.Text = selectedCustomer.Budget.ToString();
                 }
                 else
                 {
-                    MessageBox.Show("Wybrany element nie jest klientem."); // Informacja o b³êdzie
+                    MessageBox.Show("The selected item is not a customer.");
                 }
             }
-            else if(listView1.SelectedItems.Count > 1)
+            else if (listView1.SelectedItems.Count > 1)
             {
-                MessageBox.Show("Wybierz tylko 1 klienta do edycji.");
+                MessageBox.Show("Select only one customer.");
             }
             else
             {
-                MessageBox.Show("Wybierz klienta do edycji.");
+                MessageBox.Show("Select customer. ");
             }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                var selectedItem = listView1.SelectedItems[0];
 
+
+                if (selectedItem.Tag is Customer selectedCustomer)
+                {
+
+                    selectedCustomer.Name = textBoxEditName.Text;
+                    selectedCustomer.Adress = textBoxEditAddress.Text;
+                    selectedCustomer.Email = textBoxEditEmail.Text;
+                    selectedCustomer.PhoneNumber = long.Parse(textBoxEditPhone.Text);
+                    selectedCustomer.Budget = int.Parse(textBoxEditBudget.Text);
+
+
+                    customerDB.Customers.Update(selectedCustomer);
+                    customerDB.SaveChanges();
+
+                    textBoxEditName.Text = "";
+                    textBoxEditAddress.Text = "";
+                    textBoxEditEmail.Text = "";
+                    textBoxEditPhone.Text = "";
+                    textBoxEditBudget.Text = "";
+                    ShowCustomers();
+
+
+                    MessageBox.Show("Customer data has been saved.");
+                }
+                else
+                {
+                    MessageBox.Show("The selected item is not a customer.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a customer to save changes.");
+            }
         }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                var selectedItem = listView1.SelectedItems[0];
+
+                
+                if (selectedItem.Tag is Customer selectedCustomer)
+                {
+                    
+                    customerDB.Customers.Remove(selectedCustomer);
+                    customerDB.SaveChanges();
+
+                    // Remove customer from local list
+                    customerList.Remove(selectedCustomer);
+
+                    // Remove item directly from listView1
+                    listView1.Items.Remove(selectedItem);
+
+                    MessageBox.Show("Customer has been deleted.");
+                }
+                else
+                {
+                    MessageBox.Show("The selected item is not a customer.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a customer to delete.");
+            }
+        }
+
     }
 }
